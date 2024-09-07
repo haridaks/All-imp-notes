@@ -1,0 +1,74 @@
+CR raising steps:
+
+CR raising steps for Addons package:
+
+1)Put "git diff" command in Addon package path
+2)All codes we added and locator should be in green color
+3)Put "git status" command in Addon package path
+4)Put "git add 'copy paste the modifier from git status'" and click enter 
+5)After clicking enter, Put "git status" command again and modifier should be in green color
+6)Put "git commit -m "Enter cr heading"" and click enter(File changed and insertion should be shown)
+
+CR raising steps for tests pakage:
+
+1)Put "git diff" command in test package path
+2)Check whether any space are displayed by checking red spaces in code after entering "git diff"
+3)If there is any space, we should delete those spaces in eclipse and again enter "git diff" to check all spaces are removed.
+4)Again entering "git diff" every code you added should be in green color.
+5)Now enter "git status"
+6)Put "git add 'copy paste the modifier from git status'" and click enter
+7)After clicking enter, Put "git status" command again and modifier should be in green color
+8)Put "git commit -m "Enter cr heading"" and click enter(File changed and insertion should be shown)
+
+
+Locator CR Raise:
+1)Put "/apollo/env/G2S2CommandTools/bin/g2s2-post-review -s AEEUIProd-1901 --url https://g2s2-author.amazon.com" and click enter
+/apollo/env/G2S2CommandTools/bin/g2s2-post-review -s AEEUIProd-2065 --url https://g2s2-author.amazon.com
+or    g2s2postreview -s AEEUIProd-2008 --url https://g2s2-author.amazon.com
+
+Note: 1901 is a label id, kindly change it with yours.
+
+If authendication required: 
+2)Then, Enter "mwinit -s -o"
+3)Enter yes
+4)Locator CR will be raised after entering yes. Just save the CR link in note pad. 
+
+
+Addons and Test CR Command:
+1)Put "cr --all" and click enter
+2)Code CR will be raised after clicking enter. Just save the CR link in note pad.
+
+
+
+CR raising steps for Add ons package(Revision CR):
+
+1)Put "git diff" command in Addon package path
+2)All codes we added and locator should be in green color
+3)Put "git status" command in Addon package path
+4)Put "git add 'copy paste the modifier from git status'" and click enter 
+5)After clicking enter, Put "git status" command again and modifier should be in green color
+6)Put "git add 'copy paste the modifier from git status'" and click enter
+7)After clicking enter, Put "git status" command again and modifier should be in green color
+8)Put "git commit -m "Enter Revision cr heading"" and click enter(File changed and insertion should be shown)
+
+
+CR raising steps for tests pakage(Revision CR):
+
+1)Put "git diff" command in test package path
+2)2)Check whether any space are displayed by checking red spaces in code after entering "git diff"
+3)If there is any space, we should delete those spaces in eclipse and again enter "git diff" to check all spaces are removed.
+4)Again entering "git diff" every code you added should be in green color.
+5)Now enter "git status"
+6)Put "git add 'copy paste the modifier from git status'" and click enter
+7)After clicking enter, Put "git status" command again and modifier should be in green color
+8)Put "git commit -m "Enter Revision cr heading"" and click enter(File changed and insertion should be shown) - erase
+
+
+Locator Revision CR Command:
+1)Put "/apollo/env/G2S2CommandTools/bin/g2s2-post-review -r CR-136734358 -s AEEUIProd-2065 --url https://g2s2-author.amazon.com" - Change the label number with the label using now 
+or  g2s2postreview -r CR-136734358 -s AEEUIProd-2065 --url https://g2s2-author.amazon.com
+
+Addons and Test CR Command:
+1)cr --all -r CR-136734958
+
+Eg: cr --all -r CR-100735941

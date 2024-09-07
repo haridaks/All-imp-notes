@@ -1,0 +1,126 @@
+ssh -l haridaks -L 13390:localhost:3389 dev-dsk-haridaks-1a-b6edd952.eu-west-1.amazon.com - ssh
+https://w.amazon.com/bin/view/AEE/DA_Team/TC_Automation/SetUp_Guide - set up guide
+https://w.amazon.com/bin/view/GlobalStoreTech/AEE_DA/QSA_Automation_Training_Plan/ - training plan
+g2s2cli create AEEUIProd-1902 -p @AEEUIProd
+g2s2cli labelhistory AEEUIProd
+g2s2cli movelabel AEEQA-amrajase -t AEEUIProd-1900 --allow-mutable
+BB Clean: brazil-build clean && brazil-build
+AAA command: /apollo/env/AAAWorkspaceSupport/bin/register_with_aaa.py -a AEE_UI_Automation -t 14400
+g2s2cli create AEEUIProd-1902 -p @AEEUIProd
+g2s2cli labelhistory AEEUIProd
+g2s2cli movelabel AEEQA-haridaks -t AEEUIProd-1960 --allow-mutable
+g2s2cli create AEEUIProd-2030 -p @AEEUIProd
+g2s2cli create AEEUIProd-2065 -p @AEEUIProd
+g2s2cli movelabel AEEQA-haridaks -t AEEUIProd-2030 --allow-mutable 
+g2s2cli movelabel AEEQA-haridaks -t AEEUIProd-2065 --allow-mutable
+
+?language=fr_BE-x-debug  --TO FIND STRING
+?language=en_ZA-x-debug
+
+
+toolbox install g2s2postreview
+g2s2postreview -s AEEUIProd-1920 --url https://g2s2-author.amazon.com
+
+ bin/singletest.sh com.amazon.aeeqa.ui.tests.countryexpansion.CustomerReviewsTest testCustomerReviewsTable -DTK:prefcountrycode=ZA -DTK:preflanguagecode=en -Dcountry=ZA -Dlanguage=en -Drealm=EUAmazon -Durl=https://www.amazon.co.za -DTK-browser-name=chrome -Dheadless=false
+/apollo/env/G2S2CommandTools/bin/g2s2-post-review -s AEEUIProd-1920 --url https://g2s2-author.amazon.com
+ /apollo/env/G2S2CommandTools/bin/g2s2-post-review -s AEEUIProd-1920 --url https://g2s2-author.amazon.com
+ g2s2postreview -s AEEUIProd-1920 --url https://g2s2-author.amazon.com
+
+[May 20, 2024, 4:39 PM] M V, Priyankha: -Dg2s2Type=Author -Dg2s2Label=AEEQA-mvpriyav
+[May 20, 2024, 4:47 PM] M V, Priyankha: Remote desktop terminal, enter the below commands :
+
+brazil-package-cache stop
+rm ~/brazil-pkg-cache/daemon-lck
+brazil-package-cache start
+
+bb clean and AAA in all three packages. 
+
+In command prompt, 
+cd /local/home/(your alias)/(your workspace name)/src/AEEQAUIAutomationTests
+
+and run the test case:
+bin/singletest.sh com.amazon.aeeqa.ui.tests.countryexpansion.DetailPageTest testCustomerQAndASearchInlineText -Dcountry=BE -Dlanguage=fr -Drealm=EUAmazon -Durl=https://www.amazon.com.be -Dbrowser=chrome -Dheadless= -Dg2s2Type=READ -Dg2s2Label=AEEUIProd
+[May 20, 2024, 4:54 PM] M V, Priyankha: For New TC and Locator :
+Include this attribute in the command. 
+-Dg2s2Type=Author -Dg2s2Label=AEEQA-mvpriyav
+
+
+
+
+bin/singletest.sh com.amazon.aeeqa.ui.tests.countryexpansion.YourAccountPageTest testImpactSection -DTK:prefcountrycode=ZA -DTK:preflanguagecode=en -Dcountry=ZA -Dlanguage=en -Drealm=EUAmazon -Durl=https://www.amazon.co.za -DTK-browser-name=chrome -Dheadless= -Dg2s2Type=Author -Dg2s2Label=AEEQA-haridaks
+
+bin/singletest.sh com.amazon.aeeqa.ui.tests.countryexpansion.YourAccountPageTest testImpactSection -Dcountry=BE -Dlanguage=fr -Drealm=EUAmazon -Durl=https://www.amazon.com.be -Dbrowser=chrome -Dheadless= -Dg2s2Type=Author -Dg2s2Label=AEEQA-haridaks
+
+Before bb clean and aaa command:
+
+brazil-package-cache stop
+rm ~/brazil-pkg-cache/daemon-lck
+brazil-package-cache start
+brazil ws sync --md
+
+bin/singletest.sh com.amazon.aeeqa.ui.tests.countryexpansion.DetailPageTest testCustomerQAndASearchInlineText -Dcountry=BE -Dlanguage=fr -Drealm=EUAmazon -Durl=https://www.amazon.com.be -Dbrowser=chrome -Dheadless= -Dg2s2Type=READ -Dg2s2Label=AEEUIProd
+bin/singletest.sh com.amazon.aeeqa.ui.tests.countryexpansion.GiftPageTest testGiftOptionInCart -DTK:prefcountrycode=ZA -DTK:preflanguagecode=en -Dcountry=ZA -Dlanguage=en -Drealm=EUAmazon -Durl=https://www.amazon.co.za -DTK-browser-name=chrome -Dheadless= -Dg2s2Type=READ -Dg2s2Label=AEEUIProd
+
+bin/singletest.sh com.amazon.aeeqa.ui.tests.countryexpansion.DetailPageTest testPUPPromiseMessageInDetailPAge -DTK:prefcountrycode=ZA -DTK:preflanguagecode=en -Dcountry=ZA -Dlanguage=en -Drealm=EUAmazon -Durl=https://www.amazon.co.za -DTK-browser-name=chrome -Dheadless= -Dg2s2Type=READ -Dg2s2Label=AEEUIProd
+
+
+bin/singletest.sh com.amazon.aeeqa.ui.tests.countryexpansion.DetailPageTest testPriceForBooks -DTK:prefcountrycode=ZA -DTK:preflanguagecode=en -Dcountry=ZA -Dlanguage=en -Drealm=EUAmazon -Durl=https://www.amazon.co.za -DTK-browser-name=chrome -Dheadless= -Dg2s2Type=Author -Dg2s2Label=AEEQA-haridaks
+
+bin/singletest.sh com.amazon.aeeqa.ui.tests.countryexpansion.DEXTest testDefaultPostalCode -DTK:prefcountrycode=ZA -DTK:preflanguagecode=en -Dcountry=ZA -Dlanguage=en -Drealm=EUAmazon -Durl=https://www.amazon.co.za -DTK-browser-name=chrome -Dheadless= -Dg2s2Type=READ -Dg2s2Label=AEEUIProd -Dtestrail.reportToTestRail=true -Dtestrail.testRunId=24761
+
+
+
+bin/singletest.sh com.amazon.aeeqa.ui.tests.countryexpansion.DEXTest testDefaultPostalCode -DTK:prefcountrycode=BE -DTK:preflanguagecode=en -Dcountry=BE -Dlanguage=en -Drealm=EUAmazon -Durl=https://www.amazon.com.be -DTK-browser-name=chrome -Dheadless= -Dg2s2Type=READ -Dg2s2Label=AEEUIProd -Dtestrail.reportToTestRail=true -Dtestrail.testRunId=24761
+
+bin/singletest.sh com.amazon.aeeqa.ui.tests.countryexpansion.DEXTest testDefaultPostalCode -DTK:prefcountrycode=BE -DTK:preflanguagecode=fr -Dcountry=BE -Dlanguage=fr -Drealm=EUAmazon -Durl=https://www.amazon.com.be -DTK-browser-name=chrome -Dheadless= -Dg2s2Type=READ -Dg2s2Label=AEEUIProd -Dtestrail.reportToTestRail=true -Dtestrail.testRunId=24761
+
+multi cart - add of 2 multicart charges should be equal to another one
+
+014311137X , B00IDVE9UA
+1922940194 - retail book asins
+
+
+    @Locator(value = "VARIATION_PRICE_FOR_BOOK")
+    private static BasePageElement variationPriceForBook;
+
+    @Locator(value = "BUYBOX_PRICE_FOR_BOOK")
+    private static BasePageElement buyboxPriceForBook;
+
+ /**
+     * Get price displayed in the variations of the format.
+     * @return variation price for books as String
+     */
+    public String getVariationPriceForBook() {
+        variationPriceForBook.waitIsPresent();
+        return variationPriceForBook.getText();
+    }
+
+     /**
+     * Get price displayed in the buybox.
+     * @return buybox price for books as String
+     */
+    public String getBuyboxPriceForBook() {
+         buyboxPriceForBook.waitIsPresent();
+         return buyboxPriceForBook.getText();
+    }
+}
+
+
+    @Test(description = "C148635, Verify the price displayed for book ASINs is same as in swatch and buybox",
+            groups = {PriorityGroups.P0, FeatureGroups.COUNTRY_EXPANSION, FeatureGroups.DETAIL})
+    public void testPriceForBooks() {
+        String asinType = "bookAsinWithTwoAuthors";
+        DetailPage detailPage = signInAndGoToDetailPage(asinType, null);
+        BannerHelper.acceptCookies(driver);
+        SoftAssert softAssert = new SoftAssert();
+        String buyBoxPrice = detailPage.getBuyboxPriceForBook().replaceAll("[\\n\\r]+","");
+        String variationPrice = detailPage.getVariationPriceForBook().replaceAll("[,.\\s+]", "");
+        softAssert.assertTrue(variationPrice.contains(currencySymbol),
+        String.format("Expected currency symbol [%s] but observerd [%s]", currencySymbol, variationPrice));
+        softAssert.assertTrue(buyBoxPrice.contains(currencySymbol),
+        String.format("Expected currency symbol [%s] but observerd [%s]", currencySymbol, buyBoxPrice));
+        softAssert.assertEquals(variationPrice, buyBoxPrice,
+        String.format("Price of the book format is not same in swatch and buybox: Swatch price [%s] Buybox price [%s]", variationPrice , buyBoxPrice));
+        softAssert.assertAll();
+     }
+

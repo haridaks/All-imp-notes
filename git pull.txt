@@ -1,0 +1,69 @@
+notepad - save your code. 
+3 packages -> git pull --rebase
+3 packages -> bb clean & AAA 
+
+Locator & test
+git diff
+git status
+git add "..."
+git commit -m "CE-CX DP "
+cr --all
+
+git commit --amend (in revision CR it will just take the previous commit message automatically, if it is a small changes)
+
+
+   @Test(description = "C148635, Verify the price displayed for book ASINs is same as in swatch and buybox",
+          groups = {PriorityGroups.P0, FeatureGroups.COUNTRY_EXPANSION, FeatureGroups.DETAIL})
+   public void testPriceForBooks() {
+       String gl = "gl_book";
+       String wdg = "book_display_on_website";
+       TestDTORequest bookTestDTORequest = buildTestDTORequest(buildTestASINRequest(buildAsinCondition(gl, wdg)), null);
+       TestDTO bookTestDTO = generateTestDTO(bookTestDTORequest);
+       reportTestDTO(bookTestDTORequest, bookTestDTO, null);
+       DetailPageHelper.goToDetailPage(driver, bookTestDTO.getTestASIN(), url);
+       DetailPage detailPage = new DetailPage(driver);
+       String bookFormat = "paperback";
+       SoftAssert softAssert = new SoftAssert();
+       String buyBoxPrice = detailPage.getBuyboxPriceForBooks().replaceAll("[\\n\\r]+","");
+       String variationPrice = detailPage.getVariationPriceForBooks().replaceAll("[,.\\s+]", "").trim();
+       softAssert.assertTrue(variationPrice.contains(currencySymbol),
+       String.format("Expected currency symbol [%s] but observerd [%s]", currencySymbol, variationPrice));
+       softAssert.assertTrue(buyBoxPrice.contains(currencySymbol),
+       String.format("Expected currency symbol [%s] but observerd [%s]", currencySymbol, buyBoxPrice));
+       Assert.assertEquals(variationPrice , buyBoxPrice,
+       String.format("Expectedv[%s] but observed [%s]", variationPrice , buyBoxPrice));
+       softAssert.assertAll();
+   }
+
+ 
+   @Locator(value = "VARIATION_PRICE_FOR_BOOKS")
+   private static BasePageElement variationPriceForBooks;
+
+   @Locator(value = "BUYBOX_PRICE_FOR_BOOKS")
+   private static BasePageElement buyboxPriceForBooks;
+
+     /**
+      * Constructor with driver instance.
+      * @param driver the WebDriver instance.
+@@ -1972,4 +1978,22 @@ public class DetailPage extends BasePageModel {
+         return new BasePageElement(driver, agsFreeShippingMessage.getName(),
+                 String.format(agsFreeShippingMessage.getXPath(), freeInternationalShipMessage)).isPresent();
+       }
++
+   /**
+    * Get price displayed in the variations of the format.
+    * @return variation price for books as String
+    */
+   public String getVariationPriceForBooks() {
+       variationPriceForBooks.waitIsPresent();
+        return variationPriceForBooks.getText();
+   }
+
+    /**
+    * Get price displayed in the buybox.
+    * @return buybox price for books as String
+    */
+   public String getBuyboxPriceForBooks() {
+        buyboxPriceForBooks.waitIsPresent();
+        return buyboxPriceForBooks.getText();
+   }

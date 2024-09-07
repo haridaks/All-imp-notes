@@ -1,0 +1,36 @@
+git:-
+
+#. git init projectName :- Create a new local repository from scratch.
+
+#. git clone respositoryURL:- clone the project from an existing repository.
+
+#. git status:- check status
+
+#. git diff:- show the changes to files not yet staged.
+
+#. git log:- show full change history
+
+#. git branch:- List of all local branches
+
+#. git branch -av:- List of all local/remote branches
+
+#. git checkout branchName:- switch to a branch
+
+#. git branch branchName:- create a new git branch.
+
+#. delete branch:- git branch -d branchName
+
+#. git add filename:- Stage the file,ready for commit
+
+#. git add:- Stage all changed files,ready for commit.
+
+#. git commit -m  commitMessgae:-Commit all staged files.
+
+#. git fetch:- Get the latest changes from origin and no merge
+
+#. git pull: Fetch the latest changes from origin and merge.
+
+#. git push:- Push local changes to the origin.
+
+#. git diff --help:- when in doubt,use git help
+

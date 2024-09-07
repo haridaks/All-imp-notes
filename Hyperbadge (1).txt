@@ -1,0 +1,97 @@
+
+Tampermonkey® by Jan Biniok
+v4.19.0
+	
+HyperBadge 2.1
+by johngill
+1
+// ==UserScript==
+2
+// @name         HyperBadge 2.1
+3
+// @namespace    https://hyperbadge.amazon.dev/
+4
+// @version      2.1
+5
+// @description  A Tampermonkey userscript that replaces the default employee badge in the Phone Tool with a hyper-realistic, pseudo-3D, interactive version of The Badge Reimagined.
+6
+// @author       johngill
+7
+// @match        https://phonetool.amazon.com/users/*
+8
+// @match        https://connect.amazon.com/users/*
+9
+// @match        https://hyperbadge.amazon.dev/*
+10
+// @updateURL    https://userscript.hyperbadge.amazon.dev/hyperbadge.user.js
+11
+// @downloadURL  https://userscript.hyperbadge.amazon.dev/hyperbadge.user.js
+12
+// @run-at       document-start
+13
+// @grant        none
+14
+// ==/UserScript==
+15
+​
+16
+(function () {
+17
+  var VERSION = 'HyperBadge 2.1';
+18
+  var ROOT = 'https://userscript.hyperbadge.amazon.dev';
+19
+​
+20
+  var applyUserscript = function() {
+21
+    var html = document.querySelector('html');
+22
+    var head = document.head;
+23
+​
+24
+    html.dataset.userscript = VERSION;
+25
+    html.dataset.userscripts = html.dataset.userscripts ? html.dataset.userscripts + ',' + VERSION : VERSION;
+26
+​
+27
+    var style = document.createElement('style');
+28
+    style.appendChild(document.createTextNode('.employee-badge {min-width: 180px; min-height: 400px;} .worker-badge {display: none !important;}'));
+29
+    head.appendChild(style);
+30
+​
+31
+    var link = document.createElement('link');
+32
+    link.rel = 'stylesheet';
+33
+    link.type = 'text/css';
+34
+    link.href = ROOT + '/styles.css';
+35
+    head.appendChild(link);
+36
+​
+37
+    var script = document.createElement('script');
+38
+    script.type = 'text/javascript';
+39
+    script.src = ROOT + '/scripts.js';
+40
+    head.appendChild(script);
+41
+  };
+42
+​
+43
+  if (document && document.head) {
+Tam - Your service bot
+
+Do you need help working with Tampermonkey?
+Disable
+Tampermonkey Bot

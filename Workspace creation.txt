@@ -1,0 +1,76 @@
+
+Workspace creation:
+
+1)mwinit -o
+2)kinit -f
+3)Then, we should move to workspace folder by using the following commands:
+
+cd desktop
+cd Rajubhai workspace 
+
+4)Next we have to create automation folders in workspace by using following commands
+
+1. brazil workspace create --root AEEQAUIAutomation -vs AEEQAUIAutomation/development
+2. cd AEEQAUIAutomation
+3. brazil workspace use -p AEEQAUIAutomationFrameworkCore
+4. brazil workspace use -p AEEQAUIAutomationAddOns
+5. brazil workspace use -p AEEQAUIAutomationTests
+6. brazil ws use --platform AL2_x86_64 (Version platform set, don't include this along with commands)
+
+5)Open the workspace folder manually Worspace->AEEQAUIAutomation->packageinfo - Verify platform overides to AL2_x86_64
+6)Again add the following commands to move to AEEQAUIAutomationFrameworkCore/Addons/Tests folders and clean those folders
+using bb clean command
+
+**Framework folder**
+1. cd src
+2. cd AEEQAUIAutomationFrameworkCore
+3. brazil-build clean && brazil-build - It is bb clean used clean all the folders 
+
+**Addons folder**
+1. cd ../AEEQAUIAutomationAddOns
+2. brazil-build clean && brazil-build - It is bb clean used clean all the folders 
+
+**Tests folder**
+
+1. cd ../AEEQAUIAutomationTests
+2. brazil-build clean && brazil-build - It is bb clean used clean all the folders 
+
+7)Open eclipse->browse and select respective workspace folder. Add/Import framework, addons and tests package in eclipse 
+by using the following steps 
+
+1. File->New->Brazil java project 
+2. Version set:-> AEEQAUIAutomation/development | Platform overides:-> AL2_x86_64
+3. Click, "Next>" button
+4. Package:-> AEEQAUIAutomationFrameworkCore | Branch: Mainline
+5. Click, "Add Package" button
+6. Package:-> AEEQAUIAutomationAddOns | Branch: Mainline
+7. Click, "Add Package" button
+8. Package:-> AEEQAUIAutomationTests | Branch: Mainline
+9. Click, "Add Package" button
+10. Click, "Finish" button - After adding packages, we should wait til all packages get loaded 
+
+8)Verify all 3 package are displayed in package explorer
+	
+9)Now right click Addons package, Build path->Configure build path
+
+1. Click Libraries tab and verify brazil dependency & JRE system library are displayed
+2. Go to Projects tab->Click Add button->select only frameworkcore project and click ok then click apply
+3. Go to libraries->click Add external Jars button->Select lombok.jar->Click ok then->apply-> ok
+
+10)Now right click Framework package, Build path->Configure build path
+
+1. Go to libraries->click Add external Jars button->Select lombok.jar->Click ok then->apply-> ok
+
+11)Now right click Tests package, Build path->Configure build path
+
+1. Go to libraries->click Add external Jars button->Select lombok.jar->Click ok then->apply
+2. Go to Projects tab->Click Add button->Select Addons and Framework projects and click ok then click apply->ok
+
+12)Open workspace folder manually, Open src->AEEQAUIAutomationTests->Happy trails
+
+1.Remove the commands from happy trails and paste "export APOLLO_STARTUP_ENVIRONMENT_ROOT=${PWD}/../../AAA/AEEQAUIAutomationTests-${USER}"
+2.Save and close it 
+3.Go to workspace folder again, Open AEEQAUIAutomation->src->AEEQAUIAutomationTests->Happy trails
+4.Remove the commands from happy trails and paste "export APOLLO_STARTUP_ENVIRONMENT_ROOT=${PWD}/../../AAA/AEEQAUIAutomationTests-${USER}"
+5.Save and close it
+
